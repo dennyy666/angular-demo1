@@ -7,6 +7,10 @@ const routes: Routes = [
   { path: 'helloWorld', component: HelloWorldComponent },
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },  
+  {
+    path: 'layout',
+    loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule),
+  },  
 ];
 
 @NgModule({
