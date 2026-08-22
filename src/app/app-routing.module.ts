@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'helloWorld', component: HelloWorldComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: 'login', component: LoginComponent },  
 ];
 
 @NgModule({
