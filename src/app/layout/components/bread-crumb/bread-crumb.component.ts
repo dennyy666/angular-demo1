@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import { SharedStateService } from '../../shared-state.service';
 
 @Component({
   selector: 'app-bread-crumb',
@@ -9,15 +10,23 @@ import { NzModalService } from 'ng-zorro-antd/modal';
   styleUrls: ['./bread-crumb.component.less']
 })
 export class BreadCrumbComponent implements OnInit {
-
+  // 将 isCollapsed 暴露为可观察对象，模板中通过 async 管道订阅
+  isCollapsed$
   constructor(
     private router: Router,
     private modal: NzModalService,
     private message: NzMessageService,
-  ) { }
+        private sharedState: SharedStateService,
+  ) { 
+    this.isCollapsed$ = this.sharedState.isCollapsed$;
+  }
 
   ngOnInit() {
   }
+
+  toggle() {
+    this.sharedState.toggleCollapsed(); // 修改共享变量
+  }  
 
   openGithub() {
     window.open("https://github.com/dennyy666/manage-angular", "_blank")

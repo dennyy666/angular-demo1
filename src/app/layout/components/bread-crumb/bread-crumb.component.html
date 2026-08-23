@@ -1,6 +1,6 @@
 <header class="breadcrumb">
   <div class="left"> 
-    <span nz-icon nzType="menu-fold" nzTheme="outline"></span>
+    <span nz-icon  [nzType]="(isCollapsed$ | async) ?'menu-unfold':'menu-fold'" nzTheme="outline" (click)="toggle()"></span>
   </div>
   <div class="right">
     <a nz-dropdown [nzDropdownMenu]="menu" nzPlacement="bottomRight">
