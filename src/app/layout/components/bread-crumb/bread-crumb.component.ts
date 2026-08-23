@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { SharedStateService } from '../../shared-state.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-bread-crumb',
@@ -16,7 +17,8 @@ export class BreadCrumbComponent implements OnInit {
     private router: Router,
     private modal: NzModalService,
     private message: NzMessageService,
-        private sharedState: SharedStateService,
+    private sharedState: SharedStateService,
+    public authService: AuthService,    
   ) { 
     this.isCollapsed$ = this.sharedState.isCollapsed$;
   }
@@ -39,6 +41,7 @@ export class BreadCrumbComponent implements OnInit {
       nzOkType: 'primary',
       nzOkDanger: true,
       nzOnOk: () => {
+        this.authService.logout();
         this.router.navigateByUrl('login');
         this.message.success('退出登录成功');
       },
