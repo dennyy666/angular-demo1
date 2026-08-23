@@ -12,4 +12,17 @@ export class SlideBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  baidu() {
+    window.open("https://www.baidu.com", "_blank")
+  }
+
+  openGithub() {
+      window.open("https://github.com/dennyy666/manage-angular", "_blank")
+  }
+
+  jumpNotFound() {
+    
+  }
+
+
 }
