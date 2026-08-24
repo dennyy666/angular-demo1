@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 
 const routes: Routes = [
   { path: 'helloWorld', component: HelloWorldComponent },
@@ -11,6 +12,7 @@ const routes: Routes = [
     path: 'layout',
     loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule),
   },  
+  { path: '**', component: PageNotFoundComponent },    
 ];
 
 @NgModule({

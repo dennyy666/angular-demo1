@@ -34,7 +34,7 @@ export class SlideBarComponent implements OnInit {
   }
 
   jumpNotFound() {
-
+    this.router.navigateByUrl('/layout/homeManage/notFound');
   }
 
 
