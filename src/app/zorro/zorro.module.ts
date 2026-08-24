@@ -18,6 +18,8 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 @NgModule({
   imports: [
     CommonModule,
@@ -40,6 +42,8 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     NzMessageModule,
     NzModalModule,
     NzSpinModule,
+    NzCardModule,
+    NzDividerModule,
   ],
   exports: [
     NzButtonModule,
@@ -60,6 +64,8 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     NzMessageModule,
     NzModalModule,
     NzSpinModule,
+    NzCardModule,
+    NzDividerModule,
   ],  
   declarations: []
 })
