@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-slide-bar',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slide-bar.component.less']
 })
 export class SlideBarComponent implements OnInit {
-
-  constructor() { }
+  activeUrl: string = ''
+  constructor(
+    private router: Router,
+  ) {
+    this.listenRouter()
+  }
 
   ngOnInit() {
+  }
+
+  listenRouter() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.activeUrl = event.url;
+      }
+    });
   }
 
   baidu() {
@@ -17,11 +30,11 @@ export class SlideBarComponent implements OnInit {
   }
 
   openGithub() {
-      window.open("https://github.com/dennyy666/manage-angular", "_blank")
+    window.open("https://github.com/dennyy666/manage-angular", "_blank")
   }
 
   jumpNotFound() {
-    
+
   }
 
 
